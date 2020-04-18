@@ -1,6 +1,6 @@
 {
   "name": "treeboxjs",
-  "version": "0.0.11",
+  "version": "0.0.23",
   "description": " Display and navigate hierarchical views ",
   "main": "./dist/index.js",
   "directories": {
@@ -9,15 +9,13 @@
   "files": [
     "dist/*"
   ],
-  "dependencies": {
-    "xmldom": "^0.3.0"
-  },
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-cli": "^2.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-replace": "^1.0.0",
     "gulp-strip-comments": "^2.5.2",
+    "gulp-terser": "^1.2.0",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   },
