@@ -1,6 +1,6 @@
 {
   "name": "treeboxjs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": " Display and navigate hierarchical views ",
   "main": "./dist/index.js",
   "directories": {
@@ -15,12 +15,13 @@
     "gulp-concat": "^2.6.1",
     "gulp-replace": "^1.0.0",
     "gulp-strip-comments": "^2.5.2",
-    "gulp-terser": "^1.2.0",
+    "terser": "^4.6.11",
+    "through2": "^3.0.1",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   },
   "scripts": {
-    "build": "webpack && gulp --gulpfile ./gulpfile.browser.js"
+    "build": "gulp --gulpfile ./gulpfile.js && terser --compress --mangle --output dist/index.js -- dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -31,5 +32,6 @@
   "bugs": {
     "url": "https://github.com/jaredgorski/treebox/issues"
   },
-  "homepage": "https://github.com/jaredgorski/treebox#readme"
+  "homepage": "https://github.com/jaredgorski/treebox#readme",
+  "dependencies": {}
 }

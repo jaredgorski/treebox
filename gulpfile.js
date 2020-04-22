@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const concat = require('gulp-concat');
 const replace = require('gulp-replace');
 const strip = require('gulp-strip-comments');
-const terser = require('gulp-terser');
+const through2 = require('through2');
 
 gulp.task('build', function(done) {
   gulp.src(__dirname + '/lib/**/*.js')
@@ -10,8 +10,7 @@ gulp.task('build', function(done) {
     .pipe(replace(/class TreeBox/g, 'export default class TreeBox'))
     .pipe(strip())
     .pipe(replace(/module\.exports(.*)/g, ''))
-    .pipe(terser())
-    .pipe(concat('index.browser.js'))
+    .pipe(concat('index.js'))
     .pipe(gulp.dest(__dirname + '/dist/'))
   done();
 });
