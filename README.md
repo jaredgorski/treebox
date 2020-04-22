@@ -1,6 +1,7 @@
 <div align="right">
+  <img alt="npm" src="https://img.shields.io/npm/v/treeboxjs">&nbsp;
   <img alt="David" src="https://img.shields.io/david/jaredgorski/treebox">&nbsp;
-  <img alt="npm" src="https://img.shields.io/npm/v/treeboxjs">
+  <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/treeboxjs">
 </div>
 
 <div align="center">
