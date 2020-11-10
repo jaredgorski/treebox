@@ -1,6 +1,6 @@
 {
   "name": "treeboxjs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": " Display and navigate hierarchical views ",
   "main": "./dist/index.js",
   "directories": {
