@@ -3,23 +3,23 @@
   <head></head>
   <body>
     <div id="root" style="
-      border: 1px solid black;
+      border: 2px solid black;
       display: flex;
-      width: 300px;
       height: 300px;
+      width: 300px;
     "></div>
-    <button id="b1">Index</button>
-    <button id="b2">Traintrack</button>
-    <button id="b3">Puppy</button>
+    <button id="b1">Home</button>
+    <button id="b2">Cat</button>
+    <button id="b3">Bear</button>
     <button id="b4">Page</button>
   </body>
   <script nomodule src="https://unpkg.com/browser-es-module-loader/dist/babel-browser-build.js"></script>
   <script nomodule src="https://unpkg.com/browser-es-module-loader"></script>
   <script type="module">
-    import TreeBox from 'https://unpkg.com/treeboxjs@0.0.22/dist/index.browser.js';
+    import TreeBox from 'https://unpkg.com/treeboxjs@1.0.0/dist/index.browser.js';
 
     const nodes = {
-      label: 'index',
+      label: 'home',
       display: `
         <div>
         <h1>treebox example</h1>
@@ -28,30 +28,30 @@
       `,
       children: {
         directory: {
-        label: 'Directory',
-        children: {
-        puppy: {
-          label: 'Puppy',
-          display: `<img src="https://i.picsum.photos/id/237/300/300.jpg" height="300" width="300" />`,
-          },
-          page: {
-            label: 'Page',
+          label: 'Directory',
+          children: {
+            bear: {
+              label: 'Bear',
+              display: `<img src="https://placebear.com/300/300" height="300" width="300" />`,
+            },
+            page: {
+              label: 'Page',
               display: `
                 <div>
                   <p>Internal links to other treebox views are possible with the 'treebox-href' attribute.</p>
                   <p>Click the links below to navigate:</p>
                   <ul>
-                    <li><a treebox-href="/traintrack" style="color:blue;cursor:pointer;text-decoration:underline;">Go to traintrack</a></li>
-                    <li><a treebox-href="/directory/puppy" style="color:blue;cursor:pointer;text-decoration:underline;">Go to puppy</a></li>
+                    <li><a treebox-href="/cat" style="color:blue;cursor:pointer;text-decoration:underline;">Go to cat</a></li>
+                    <li><a treebox-href="/directory/bear" style="color:blue;cursor:pointer;text-decoration:underline;">Go to bear</a></li>
                   </ul>
                 </div>
               `,
             },
           },
         },
-        traintrack: {
-          label: 'Traintrack',
-          display: `<img src="https://i.picsum.photos/id/227/300/300.jpg" height="300" width="300" />`,
+        cat: {
+          label: 'Cat',
+          display: `<img src="https://placekitten.com/300/300" height="300" width="300" />`,
         },
       },
     };
@@ -64,8 +64,8 @@
     }
 
     $('b1').onclick = () => tb.navigate('/');
-    $('b2').onclick = () => tb.navigate('/traintrack');
-    $('b3').onclick = () => tb.navigate('/directory/puppy');
+    $('b2').onclick = () => tb.navigate('/cat');
+    $('b3').onclick = () => tb.navigate('/directory/bear');
     $('b4').onclick = () => tb.navigate('/directory/page');
   </script>
 </html>

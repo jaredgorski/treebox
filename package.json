@@ -4,24 +4,19 @@
   "description": " Display and navigate hierarchical views ",
   "main": "./dist/index.js",
   "directories": {
-    "lib": "./lib"
+    "src": "./src"
   },
   "files": [
     "dist/*"
   ],
   "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-cli": "^2.2.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-replace": "^1.0.0",
-    "gulp-strip-comments": "^2.5.2",
-    "terser": "^4.6.11",
+    "serve": "^11.3.2",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   },
   "scripts": {
-    "build": "webpack && gulp --gulpfile ./gulpfile.browser.js && terser --compress --mangle --output dist/index.browser.js -- dist/index.browser.js",
-    "build:browser": "gulp --gulpfile ./gulpfile.browser.js && terser --compress --mangle --output dist/index.browser.js -- dist/index.browser.js"
+    "build": "webpack",
+    "demo": "serve demo"
   },
   "repository": {
     "type": "git",
