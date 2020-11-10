@@ -43,7 +43,7 @@ npm i treeboxjs
 
 ```js
   <script type="module">
-    import TreeBox from ''path-to-module/dist/index.js'';
+    import TreeBox from 'path-to-module/dist/index.js';
     
     ...
 ```
