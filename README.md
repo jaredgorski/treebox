@@ -32,7 +32,7 @@ npm i treeboxjs
 </h3>
 
 ```js
-  import TreeBox from 'treeboxjs';
+  const TreeBox = require('treeboxjs');
 
   ...
 ```
@@ -55,7 +55,7 @@ npm i treeboxjs
 </div>
 
 ```js
-import TreeBox from 'treeboxjs';
+const TreeBox = require('treeboxjs');
 
 const nodes = {
   display: `<h1>treebox example</h1>`, // This will display by default when treebox is rendered
@@ -68,22 +68,52 @@ const nodes = {
       },
     },
     file: {
-      display: `
-        <div>
-          <p>Another file</p>
-          <p>Multiple elements must be wrapped in a single enclosing element</p>
-          <a treebox-href="/directory/file">Link to /directory/file within treebox</a>
-        </div>
-      `,
+      display: String.raw`
+<div>
+  <p>Another file</p>
+  <p>Multiple elements must be wrapped in a single enclosing element</p>
+  <a treebox-href="/directory/file">Link to /directory/file within treebox</a>
+</div>
+      `.trim(),
     },
   },
 };
 
-const root = document.getElementById('myTreeBoxRoot');
+// const root = document.getElementById('myTreeBoxRoot'); // if in the browser
+const root = {
+  appendChild: (x) => console.log('Rendered:\n', x),
+  removeChild: () => console.log('\nCleared\n'),
+};
 
 const tb = new TreeBox({nodes, root}); // Initiate treebox and append it to the "root" element
 
 tb.navigate('/file'); // This code will cause treebox to render the `display` HTML at `nodes.children.file`
 tb.navigate('/directory/file'); // This code will cause treebox to render the `display` HTML at `nodes.children.directory.children.file`
 tb.navigate('/'); // This code will cause treebox to render the `display` HTML at `nodes.children`
+
+
+/* OUTPUT: */
+/*
+ * Rendered:
+ * <h1>treebox example</h1>
+ * 
+ * Cleared
+ * 
+ * Rendered:
+ * <div>
+ *   <p>Another file</p>
+ *   <p>Multiple elements must be wrapped in a single enclosing element</p>
+ *   <a treebox-href="/directory/file">Link to /directory/file within treebox</a>
+ * </div>
+ * 
+ * Cleared
+ * 
+ * Rendered:
+ * <p>A file</p>
+ * 
+ * Cleared
+ * 
+ * Rendered:
+ * <h1>treebox example</h1>
+ */
 ```
